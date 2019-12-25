@@ -28,22 +28,22 @@ contract('Meme', ([deployer, seller, buyer]) => {
         })
     })
 
-    describe('storage', async()=>{
-        it('updates the memeHash', async()=>{
-           // meme = await Meme.deployed()
-           let memeHash
-           memeHash = 'abc123'
-           await meme.set(memeHash)
-           const result = await meme.get()
-           assert.equal(result, memeHash)
-        })
-    })
+    // describe('storage', async()=>{
+    //     it('updates the memeHash', async()=>{
+    //        //meme = await Meme.deployed()
+    //        let memeHash
+    //        memeHash = 'abc123'
+    //        await meme.set(memeHash)
+    //        const result = await meme.get()
+    //        assert.equal(result, memeHash)
+    //     })
+    // })
 
     describe('products', async()=> {
         let productCount, result
 
         before(async()=>{
-            result = await meme.createProduct('iPhone X', web3.utils.toWei('1','Ether'),{from: seller})
+            result = await meme.createProduct('iPhone X', web3.utils.toWei('1','Ether'), '_memehash', {from: seller})
             productCount = await meme.productCount()
         })
         //c8 product

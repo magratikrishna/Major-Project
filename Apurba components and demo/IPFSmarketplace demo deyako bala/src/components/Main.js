@@ -11,7 +11,7 @@ class Main extends Component {
           const name = this.productName.value //.value is used because name is a form field.. ie form filed ko value we are using 
           const price = window.web3.utils.toWei(this.productPrice.value.toString(), 'Ether')
           const memeHash = this.props.memeHash
-          if(this.props.memeHash != ''){
+          if(this.props.memeHash !== ''){
             this.props.createProduct(name, price, memeHash) //we are calling the function in App.js which calls the fucntion in the SC
           } else {
             window.alert('Please upload file to IPFS first')
@@ -78,7 +78,7 @@ class Main extends Component {
                     <td>{ window.web3.utils.fromWei(product.price.toString(), 'Ether')} Eth</td>
                     <td>{ product.owner }</td>
                     <td>
-                    { !product.purchased && product.owner!=this.props.account
+                    { !product.purchased && product.owner!==this.props.account
                         ? <button
                             name={product.id}
                             value={product.price}
@@ -92,7 +92,7 @@ class Main extends Component {
                     }
                     </td>
                     <td>
-                    { product.purchased && product.owner==this.props.account
+                    { product.purchased && product.owner===this.props.account
                         ? <a 
                         href={"https://ipfs.infura.io/ipfs/" + product.memeHash}
                         className="btn btn-primary " 

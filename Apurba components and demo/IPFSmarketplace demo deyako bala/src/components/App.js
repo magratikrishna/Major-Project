@@ -102,7 +102,7 @@ class App extends Component {
           console.error(error)
           return 
         }
-        if(memeHash != ''){
+        if(memeHash !== ''){
           window.alert('File uploaded to IPFS press Add Product')
         }
         else{
